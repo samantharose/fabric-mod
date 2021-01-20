@@ -1,0 +1,8 @@
+net/fabricmc/example/mixin/ExampleMixin.java
+ net.fabricmc.example.mixin.ExampleMixin
+net/fabricmc/example/ExampleMod.java
+ net.fabricmc.example.ExampleMod
+ net.fabricmc.example.ExampleMod$CustomPickaxeItem
+ net.fabricmc.example.ExampleMod$CustomShovelItem
+net/fabricmc/example/RubyWeapon.java
+ net.fabricmc.example.RubyWeapon

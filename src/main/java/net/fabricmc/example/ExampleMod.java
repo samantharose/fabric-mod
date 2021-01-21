@@ -35,13 +35,19 @@ public class ExampleMod implements ModInitializer {
 	public static final Block RUBY_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(10.0F));
 
 	// Ruby sword
-	// TODO: ruby sword
+	public ToolItem RUBY_SWORD = new SwordItem(ToolMaterial.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
 
 	// Ruby pickaxe
 	public ToolItem RUBY_PICKAXE = new CustomPickaxeItem(RubyWeapon.INSTANCE,2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));
 
 	// Ruby shovel
 	public ToolItem RUBY_SHOVEL = new CustomShovelItem(RubyWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
+
+	// Ruby axe
+	public ToolItem RUBY_AXE = new CustomAxeItem(RubyWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
+
+	// Ruby hoe
+	public ToolItem RUBY_HOE = new CustomHoeItem(RubyWeapon.INSTANCE, 1.5F, 2, new Item.Settings().group(ItemGroup.TOOLS));
 
 
 	// Ruby ore generation
@@ -60,6 +66,18 @@ public class ExampleMod implements ModInitializer {
 	// `PickaxeItem` , `HoeItem` and `AxeItem` have protected constructors, which means you will need to create your own sub-class with a public constructor
 	public class CustomPickaxeItem extends PickaxeItem {
 		public CustomPickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
+			super(material, attackDamage, attackSpeed, settings);
+		}
+	}
+
+	public class CustomHoeItem extends HoeItem {
+		public CustomHoeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
+			super(material, attackDamage, attackSpeed, settings);
+		}
+	}
+
+	public class CustomAxeItem extends AxeItem {
+		public CustomAxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
 			super(material, attackDamage, attackSpeed, settings);
 		}
 	}
@@ -97,10 +115,19 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(Registry.BLOCK, new Identifier("minecraftmod", "ruby_block"), RUBY_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "ruby_block"), new BlockItem(RUBY_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
 
+		// Register ruby sword in registry system
+		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "ruby_sword"), RUBY_SWORD);
+
 		// Register ruby pickaxe in registry system
 		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "ruby_pickaxe"), RUBY_PICKAXE);
 
 		// Register ruby shovel in registry system
 		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "ruby_shovel"), RUBY_SHOVEL);
+
+		// Register ruby axe in registry system
+		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "ruby_axe"), RUBY_AXE);
+
+		// Register ruby hoe in registry system
+		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "ruby_hoe"), RUBY_HOE);
 	}
 }

@@ -36,7 +36,7 @@ renderClouds:true
 resourcePacks:["Fabric Mods"]
 incompatibleResourcePacks:[]
 lastServer:
-lang:en_us
+lang:en_gb
 chatVisibility:0
 chatOpacity:1.0
 chatLineSpacing:0.0

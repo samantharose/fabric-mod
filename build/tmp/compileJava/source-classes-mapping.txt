@@ -1,8 +1,17 @@
 net/fabricmc/example/mixin/ExampleMixin.java
  net.fabricmc.example.mixin.ExampleMixin
+net/fabricmc/example/SapphireWeapon.java
+ net.fabricmc.example.SapphireWeapon
+net/fabricmc/example/items/RubyItem.java
+ net.fabricmc.example.items.RubyItem
 net/fabricmc/example/ExampleMod.java
  net.fabricmc.example.ExampleMod
+ net.fabricmc.example.ExampleMod$CustomAxeItem
+ net.fabricmc.example.ExampleMod$CustomHoeItem
  net.fabricmc.example.ExampleMod$CustomPickaxeItem
- net.fabricmc.example.ExampleMod$CustomShovelItem
 net/fabricmc/example/RubyWeapon.java
  net.fabricmc.example.RubyWeapon
+net/fabricmc/example/RubyArmorMaterial.java
+ net.fabricmc.example.RubyArmorMaterial
+net/fabricmc/example/items/RegisterItems.java
+ net.fabricmc.example.items.RegisterItems

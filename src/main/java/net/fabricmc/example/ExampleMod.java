@@ -3,10 +3,10 @@ package net.fabricmc.example;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.block.Material;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -19,35 +19,31 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.GenerationStep;
-import org.lwjgl.system.CallbackI;
-
-import javax.tools.Tool;
+import net.fabricmc.example.items.RegisterItems;
 
 public class ExampleMod implements ModInitializer {
+	// FIXME: ruby armour textures
 
-	// Ruby item
+	// Ruby blocks, items and tools
 	public static final Item RUBY = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
-
-	// Ruby ore
 	public static final Block RUBY_ORE = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
-
-	// Ruby block
 	public static final Block RUBY_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(10.0F));
+	public static final ToolItem RUBY_SWORD = new SwordItem(RubyWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
+	public final ToolItem RUBY_PICKAXE = new CustomPickaxeItem(RubyWeapon.INSTANCE,2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final ToolItem RUBY_SHOVEL = new ShovelItem(RubyWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
+	public final ToolItem RUBY_AXE = new CustomAxeItem(RubyWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
+	public final ToolItem RUBY_HOE = new CustomHoeItem(RubyWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
 
-	// Ruby sword
-	public ToolItem RUBY_SWORD = new SwordItem(ToolMaterial.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
 
-	// Ruby pickaxe
-	public ToolItem RUBY_PICKAXE = new CustomPickaxeItem(RubyWeapon.INSTANCE,2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));
-
-	// Ruby shovel
-	public ToolItem RUBY_SHOVEL = new CustomShovelItem(RubyWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
-
-	// Ruby axe
-	public ToolItem RUBY_AXE = new CustomAxeItem(RubyWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
-
-	// Ruby hoe
-	public ToolItem RUBY_HOE = new CustomHoeItem(RubyWeapon.INSTANCE, 1.5F, 2, new Item.Settings().group(ItemGroup.TOOLS));
+	// Sapphire blocks, items and tools
+	public static final Item SAPPHIRE = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
+	public static final Block SAPPHIRE_ORE = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
+	public static final Block SAPPHIRE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(10.0F));
+	public static final ToolItem SAPPHIRE_SWORD = new SwordItem(SapphireWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
+	public final ToolItem SAPPHIRE_PICKAXE = new CustomPickaxeItem(SapphireWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));
+	//public static final ToolItem SAPPHIRE_SHOVEL = new ShovelItem(SapphireWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
+	//public final ToolItem SAPPHIRE_AXE = new CustomAxeItem(SapphireWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
+	//public final ToolItem SAPPHIRE_HOE = new CustomHoeItem(SapphireWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
 
 
 	// Ruby ore generation
@@ -62,6 +58,20 @@ public class ExampleMod implements ModInitializer {
 					64)))
 			.spreadHorizontally()
 			.repeat(5);
+
+	// Sapphire ore generation
+	private static ConfiguredFeature<?, ?> SAPPHIRE_ORE_OVERWORLD = Feature.ORE
+			.configure(new OreFeatureConfig(
+					OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+					SAPPHIRE_ORE.getDefaultState(),
+					6))
+			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
+					0,
+					0,
+					64)))
+			.spreadHorizontally()
+			.repeat(5);
+
 
 	// `PickaxeItem` , `HoeItem` and `AxeItem` have protected constructors, which means you will need to create your own sub-class with a public constructor
 	public class CustomPickaxeItem extends PickaxeItem {
@@ -82,11 +92,11 @@ public class ExampleMod implements ModInitializer {
 		}
 	}
 
-	public class CustomShovelItem extends PickaxeItem {
-		public CustomShovelItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-			super(material, attackDamage, attackSpeed, settings);
-		}
-	}
+
+	// ItemGroup
+	public static final ItemGroup MinecraftMod = FabricItemGroupBuilder.build(
+			new Identifier("minecraftmod", "stuff"),
+			() -> new ItemStack(RUBY_BLOCK));
 
 
 	@Override
@@ -129,5 +139,26 @@ public class ExampleMod implements ModInitializer {
 
 		// Register ruby hoe in registry system
 		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "ruby_hoe"), RUBY_HOE);
+
+
+		// Register sapphire blocks/items in registry system and generate ore
+		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire"), SAPPHIRE);
+		Registry.register(Registry.BLOCK, new Identifier("minecraftmod", "sapphire_ore"), SAPPHIRE_ORE);
+		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_ore"), new BlockItem(SAPPHIRE_ORE, new Item.Settings().group(ItemGroup.MISC)));
+		Registry.register(Registry.BLOCK, new Identifier("minecraftmod", "sapphire_block"), SAPPHIRE_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_block"), new BlockItem(SAPPHIRE_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_sword"), SAPPHIRE_SWORD);
+		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_pickaxe"), SAPPHIRE_PICKAXE);
+		//Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_shovel"), SAPPHIRE_SHOVEL);
+		//Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_axe"), SAPPHIRE_AXE);
+		//Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_hoe"), SAPPHIRE_HOE);
+		RegistryKey<ConfiguredFeature<?, ?>> sapphireOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+				new Identifier("minecraftmod", "sapphire_ore_overworld"));
+		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, sapphireOreOverworld.getValue(), SAPPHIRE_ORE_OVERWORLD);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, sapphireOreOverworld);
+
+
+		// Register ruby armour
+		RegisterItems.register();
 	}
 }

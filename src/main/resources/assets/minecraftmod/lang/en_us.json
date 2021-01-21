@@ -1,8 +1,18 @@
 {
   "item.minecraftmod.ruby": "Ruby",
-  "item.minecraftmod.ruby_ore": "Ruby Ore",
-  "item.minecraftmod.ruby_block": "Ruby Block",
+  "block.minecraftmod.ruby_ore": "Ruby Ore",
+  "block.minecraftmod.ruby_block": "Ruby Block",
   "item.minecraftmod.ruby_sword": "Ruby Sword",
   "item.minecraftmod.ruby_pickaxe": "Ruby Pickaxe",
-  "item.minecraftmod.ruby_shovel": "Ruby Shovel"
+  "item.minecraftmod.ruby_shovel": "Ruby Shovel",
+  "item.minecraftmod.ruby_axe": "Ruby Axe",
+  "item.minecraftmod.ruby_hoe": "Ruby Hoe",
+  "item.minecraftmod.sapphire": "Sapphire",
+  "block.minecraftmod.sapphire_ore": "Sapphire Ore",
+  "block.minecraftmod.sapphire_block": "Sapphire Block",
+  "item.minecraftmod.sapphire_sword": "Sapphire Sword",
+  "item.minecraftmod.sapphire_pickaxe": "Sapphire Pickaxe",
+  "item.minecraftmod.sapphire_shovel": "Sapphire Shovel",
+  "item.minecraftmod.sapphire_axe": "Sapphire Axe",
+  "item.minecraftmod.sapphire_hoe": "Sapphire Hoe"
 }

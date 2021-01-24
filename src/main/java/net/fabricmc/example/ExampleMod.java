@@ -20,9 +20,12 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.GenerationStep;
 import net.fabricmc.example.items.RegisterItems;
+import net.minecraft.sound.SoundEvent;
 
 public class ExampleMod implements ModInitializer {
-	// FIXME: ruby armour textures
+	// oh god no
+	public static final Identifier ARMOUR_EQUIP = new Identifier("minecraftmod:armour_equip_sound");
+	public static SoundEvent ARMOUR_EQUIP_EVENT = new SoundEvent(ARMOUR_EQUIP);
 
 	// Ruby blocks, items and tools
 	public static final Item RUBY = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
@@ -156,6 +159,9 @@ public class ExampleMod implements ModInitializer {
 				new Identifier("minecraftmod", "sapphire_ore_overworld"));
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, sapphireOreOverworld.getValue(), SAPPHIRE_ORE_OVERWORLD);
 		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, sapphireOreOverworld);
+
+
+		Registry.register(Registry.SOUND_EVENT, ExampleMod.ARMOUR_EQUIP, ARMOUR_EQUIP_EVENT);
 
 
 		// Register ruby armour

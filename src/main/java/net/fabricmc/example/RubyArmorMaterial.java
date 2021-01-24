@@ -4,7 +4,6 @@ import net.fabricmc.example.items.RegisterItems;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.recipe.Ingredient;
 
 public class RubyArmorMaterial implements ArmorMaterial {
@@ -28,7 +27,7 @@ public class RubyArmorMaterial implements ArmorMaterial {
 
     @Override
     public SoundEvent getEquipSound() {
-        return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+        return ExampleMod.ARMOUR_EQUIP_EVENT;
     }
 
     @Override
@@ -38,7 +37,7 @@ public class RubyArmorMaterial implements ArmorMaterial {
 
     @Override
     public String getName() {
-        return "name";
+        return "ruby";
     }
 
     @Override

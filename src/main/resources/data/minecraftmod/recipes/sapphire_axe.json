@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BB ",
+    "BS ",
+    " S "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraftmod:sapphire"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "minecraftmod:sapphire_axe",
+    "count": 1
+  }
+}

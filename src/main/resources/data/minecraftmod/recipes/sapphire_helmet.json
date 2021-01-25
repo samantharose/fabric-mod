@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "B B",
+    "   "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraftmod:sapphire"
+    }
+  },
+  "result": {
+    "item": "minecraftmod:sapphire_helmet",
+    "count": 1
+  }
+}

@@ -44,9 +44,9 @@ public class ExampleMod implements ModInitializer {
 	public static final Block SAPPHIRE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(10.0F));
 	public static final ToolItem SAPPHIRE_SWORD = new SwordItem(SapphireWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
 	public final ToolItem SAPPHIRE_PICKAXE = new CustomPickaxeItem(SapphireWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));
-	//public static final ToolItem SAPPHIRE_SHOVEL = new ShovelItem(SapphireWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
-	//public final ToolItem SAPPHIRE_AXE = new CustomAxeItem(SapphireWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
-	//public final ToolItem SAPPHIRE_HOE = new CustomHoeItem(SapphireWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final ToolItem SAPPHIRE_SHOVEL = new ShovelItem(SapphireWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
+	public final ToolItem SAPPHIRE_AXE = new CustomAxeItem(SapphireWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
+	public final ToolItem SAPPHIRE_HOE = new CustomHoeItem(SapphireWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
 
 
 	// Ruby ore generation
@@ -152,9 +152,9 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_block"), new BlockItem(SAPPHIRE_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_sword"), SAPPHIRE_SWORD);
 		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_pickaxe"), SAPPHIRE_PICKAXE);
-		//Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_shovel"), SAPPHIRE_SHOVEL);
-		//Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_axe"), SAPPHIRE_AXE);
-		//Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_hoe"), SAPPHIRE_HOE);
+		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_shovel"), SAPPHIRE_SHOVEL);
+		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_axe"), SAPPHIRE_AXE);
+		Registry.register(Registry.ITEM, new Identifier("minecraftmod", "sapphire_hoe"), SAPPHIRE_HOE);
 		RegistryKey<ConfiguredFeature<?, ?>> sapphireOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
 				new Identifier("minecraftmod", "sapphire_ore_overworld"));
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, sapphireOreOverworld.getValue(), SAPPHIRE_ORE_OVERWORLD);
@@ -164,7 +164,7 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(Registry.SOUND_EVENT, ExampleMod.ARMOUR_EQUIP, ARMOUR_EQUIP_EVENT);
 
 
-		// Register ruby armour
+		// Register armour
 		RegisterItems.register();
 	}
 }

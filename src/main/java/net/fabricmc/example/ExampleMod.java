@@ -1,6 +1,11 @@
 package net.fabricmc.example;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.example.tools.RubyWeapon;
+import net.fabricmc.example.tools.SapphireWeapon;
+import net.fabricmc.example.tools.templates.CustomAxeItem;
+import net.fabricmc.example.tools.templates.CustomHoeItem;
+import net.fabricmc.example.tools.templates.CustomPickaxeItem;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -74,26 +79,6 @@ public class ExampleMod implements ModInitializer {
 					64)))
 			.spreadHorizontally()
 			.repeat(5);
-
-
-	// `PickaxeItem` , `HoeItem` and `AxeItem` have protected constructors, which means you will need to create your own sub-class with a public constructor
-	public class CustomPickaxeItem extends PickaxeItem {
-		public CustomPickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-			super(material, attackDamage, attackSpeed, settings);
-		}
-	}
-
-	public class CustomHoeItem extends HoeItem {
-		public CustomHoeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-			super(material, attackDamage, attackSpeed, settings);
-		}
-	}
-
-	public class CustomAxeItem extends AxeItem {
-		public CustomAxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-			super(material, attackDamage, attackSpeed, settings);
-		}
-	}
 
 
 	// ItemGroup

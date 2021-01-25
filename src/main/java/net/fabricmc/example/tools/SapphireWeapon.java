@@ -1,5 +1,6 @@
-package net.fabricmc.example;
+package net.fabricmc.example.tools;
 
+import net.fabricmc.example.ExampleMod;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 

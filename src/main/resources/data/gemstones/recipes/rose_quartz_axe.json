@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RR ",
+    "RS ",
+    " S "
+  ],
+  "key": {
+    "R": {
+      "item": "gemstones:rose_quartz"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "gemstones:rose_quartz_axe",
+    "count": 1
+  }
+}

@@ -1,22 +1,25 @@
 package de.netflam.gemstones;
 
+import de.netflam.gemstones.items.RegisterItems;
 import de.netflam.gemstones.tools.RubyWeapon;
-import de.netflam.gemstones.tools.templates.CustomAxeItem;
-import net.fabricmc.api.ModInitializer;
 import de.netflam.gemstones.tools.SapphireWeapon;
+import de.netflam.gemstones.tools.RoseQuartzWeapon;
+import de.netflam.gemstones.tools.templates.CustomAxeItem;
 import de.netflam.gemstones.tools.templates.CustomHoeItem;
 import de.netflam.gemstones.tools.templates.CustomPickaxeItem;
+import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
-import net.minecraft.item.*;
 import net.minecraft.block.Material;
+import net.minecraft.item.*;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
@@ -24,8 +27,6 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.GenerationStep;
-import de.netflam.gemstones.items.RegisterItems;
-import net.minecraft.sound.SoundEvent;
 
 public class GemstonesMod implements ModInitializer {
 	// oh god no
@@ -55,22 +56,17 @@ public class GemstonesMod implements ModInitializer {
 
 
 	// Rose quartz blocks, items and tools
-	// TODO: implement rose quartz texture
-	// TODO: implement rose quartz ore texture
-	// TODO: implement rose quartz block texture
-	// TODO: implement rose quartz sword
-	// TODO: implement rose quartz pickaxe
-	// TODO: implement rose quartz shovel
-	// TODO: implement rose quartz axe
-	// TODO: implement rose quartz hoe
 	public static final Item ROSE_QUARTZ = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
 	public static final Block ROSE_QUARTZ_ORE = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
 	public static final Block ROSE_QUARTZ_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(10.0F));
-	//public static final ToolItem ROSE_QUARTZ_SWORD = new SwordItem(RoseQuartzWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
-	//public static final ToolItem ROSE_QUARTZ_PICKAXE = new CustomPickaxeItem(RoseQuartzWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));
-	//public static final ToolItem ROSE_QUARTZ_SHOVEL = new ShovelItem(RoseQuartzWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
-	//public static final ToolItem ROSE_QUARTZ_AXE = new CustomAxeItem(RoseQuartzWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
-	//public static final ToolItem ROSE_QUARTZ_HOE = new CustomHoeItem(RoseQuartzWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final ToolItem ROSE_QUARTZ_SWORD = new SwordItem(RoseQuartzWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
+	public static final ToolItem ROSE_QUARTZ_PICKAXE = new CustomPickaxeItem(RoseQuartzWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final ToolItem ROSE_QUARTZ_SHOVEL = new ShovelItem(RoseQuartzWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final ToolItem ROSE_QUARTZ_AXE = new CustomAxeItem(RoseQuartzWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final ToolItem ROSE_QUARTZ_HOE = new CustomHoeItem(RoseQuartzWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
+
+
+	// TODO: implement amethyst
 
 
 	// Ruby ore generation
@@ -99,7 +95,18 @@ public class GemstonesMod implements ModInitializer {
 			.spreadHorizontally()
 			.repeat(5);
 
-	// TODO: implement rose quartz ore generation
+	// Rose quartz ore generation
+	private static ConfiguredFeature<?, ?> ROSE_QUARTZ_ORE_OVERWORLD = Feature.ORE
+			.configure(new OreFeatureConfig(
+					OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+					ROSE_QUARTZ_ORE.getDefaultState(),
+					6))
+			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
+					0,
+					0,
+					64)))
+			.spreadHorizontally()
+			.repeat(5);
 
 
 	// ItemGroup
@@ -146,12 +153,20 @@ public class GemstonesMod implements ModInitializer {
 		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, sapphireOreOverworld);
 
 
-		// TODO: register rose quartz blocks/items in registry system and generate ore
 		Registry.register(Registry.ITEM, new Identifier("gemstones", "rose_quartz"), ROSE_QUARTZ);
 		Registry.register(Registry.BLOCK, new Identifier("gemstones", "rose_quartz_ore"), ROSE_QUARTZ_ORE);
 		Registry.register(Registry.ITEM, new Identifier("gemstones", "rose_quartz_ore"), new BlockItem(ROSE_QUARTZ_ORE, new Item.Settings().group(ItemGroup.MISC)));
 		Registry.register(Registry.BLOCK, new Identifier("gemstones", "rose_quartz_block"), ROSE_QUARTZ_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier("gemstones", "rose_quartz_block"), new BlockItem(ROSE_QUARTZ_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "rose_quartz_sword"), ROSE_QUARTZ_SWORD);
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "rose_quartz_pickaxe"), ROSE_QUARTZ_PICKAXE);
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "rose_quartz_shovel"), ROSE_QUARTZ_SHOVEL);
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "rose_quartz_axe"), ROSE_QUARTZ_AXE);
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "rose_quartz_hoe"), ROSE_QUARTZ_HOE);
+		RegistryKey<ConfiguredFeature<?, ?>> roseQuartzOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+				new Identifier("gemstones", "rose_quartz_ore_overworld"));
+		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, roseQuartzOreOverworld.getValue(), ROSE_QUARTZ_ORE_OVERWORLD);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, roseQuartzOreOverworld);
 
 
 		// Register armour equip sound

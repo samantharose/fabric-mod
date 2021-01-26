@@ -4,7 +4,7 @@
 Time: 22/01/2021, 11:33
 Description: Initializing game
 
-java.lang.RuntimeException: Could not execute entrypoint stage 'main' due to errors, provided by 'minecraftmod'!
+java.lang.RuntimeException: Could not execute entrypoint stage 'main' due to errors, provided by 'gemstones'!
 	at net.fabricmc.loader.entrypoint.minecraft.hooks.EntrypointUtils.invoke0(EntrypointUtils.java:53)
 	at net.fabricmc.loader.entrypoint.minecraft.hooks.EntrypointUtils.invoke(EntrypointUtils.java:36)
 	at net.fabricmc.loader.entrypoint.minecraft.hooks.EntrypointClient.start(EntrypointClient.java:32)
@@ -18,7 +18,7 @@ java.lang.RuntimeException: Could not execute entrypoint stage 'main' due to err
 	at net.fabricmc.loader.launch.knot.Knot.init(Knot.java:139)
 	at net.fabricmc.loader.launch.knot.KnotClient.main(KnotClient.java:27)
 	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
-Caused by: java.lang.RuntimeException: Attempted to register ID ResourceKey[minecraft:item / minecraftmod:ruby] at different raw IDs (976, 989)! If you're trying to override an item, use .set(), not .register()!
+Caused by: java.lang.RuntimeException: Attempted to register ID ResourceKey[minecraft:item / gemstones:ruby] at different raw IDs (976, 989)! If you're trying to override an item, use .set(), not .register()!
 	at net.minecraft.util.registry.SimpleRegistry.handler$zch000$setPre(SimpleRegistry.java:650)
 	at net.minecraft.util.registry.SimpleRegistry.set(SimpleRegistry.java)
 	at net.minecraft.util.registry.SimpleRegistry.set(SimpleRegistry.java:72)
@@ -111,7 +111,7 @@ Details:
 		fabricloader: Fabric Loader 0.11.1
 		java: Java HotSpot(TM) 64-Bit Server VM 15
 		minecraft: Minecraft 1.16.5
-		minecraftmod: Example Mod 1.0.0
+		gemstones: Gemstones Mod 1.0.0
 	Launched Version: Fabric
 	Backend library: LWJGL version 3.2.2 build 10
 	Backend API: NO CONTEXT

@@ -1,17 +1,30 @@
-net/fabricmc/example/mixin/ExampleMixin.java
- net.fabricmc.example.mixin.ExampleMixin
-net/fabricmc/example/SapphireWeapon.java
- net.fabricmc.example.SapphireWeapon
-net/fabricmc/example/items/RubyItem.java
- net.fabricmc.example.items.RubyItem
-net/fabricmc/example/ExampleMod.java
- net.fabricmc.example.ExampleMod
- net.fabricmc.example.ExampleMod$CustomAxeItem
- net.fabricmc.example.ExampleMod$CustomHoeItem
- net.fabricmc.example.ExampleMod$CustomPickaxeItem
-net/fabricmc/example/RubyWeapon.java
- net.fabricmc.example.RubyWeapon
-net/fabricmc/example/RubyArmorMaterial.java
- net.fabricmc.example.RubyArmorMaterial
-net/fabricmc/example/items/RegisterItems.java
- net.fabricmc.example.items.RegisterItems
+de/netflam/gemstones/tools/templates/CustomAxeItem.java
+ de.netflam.gemstones.tools.templates.CustomAxeItem
+de/netflam/gemstones/tools/templates/CustomHoeItem.java
+ de.netflam.gemstones.tools.templates.CustomHoeItem
+de/netflam/gemstones/items/SapphireItem.java
+ de.netflam.gemstones.items.SapphireItem
+de/netflam/gemstones/tools/RubyWeapon.java
+ de.netflam.gemstones.tools.RubyWeapon
+de/netflam/gemstones/GemstonesMod.java
+ de.netflam.gemstones.GemstonesMod
+de/netflam/gemstones/tools/SapphireWeapon.java
+ de.netflam.gemstones.tools.SapphireWeapon
+de/netflam/gemstones/RubyArmourMaterial.java
+ de.netflam.gemstones.RubyArmourMaterial
+de/netflam/gemstones/items/RegisterItems.java
+ de.netflam.gemstones.items.RegisterItems
+de/netflam/gemstones/items/RubyItem.java
+ de.netflam.gemstones.items.RubyItem
+de/netflam/gemstones/mixin/ExampleMixin.java
+ de.netflam.gemstones.mixin.ExampleMixin
+de/netflam/gemstones/SapphireArmourMaterial.java
+ de.netflam.gemstones.SapphireArmourMaterial
+de/netflam/gemstones/tools/RoseQuartzWeapon.java
+ de.netflam.gemstones.tools.RoseQuartzWeapon
+de/netflam/gemstones/tools/templates/CustomPickaxeItem.java
+ de.netflam.gemstones.tools.templates.CustomPickaxeItem
+de/netflam/gemstones/RoseQuartzArmourMaterial.java
+ de.netflam.gemstones.RoseQuartzArmourMaterial
+de/netflam/gemstones/items/RoseQuartzItem.java
+ de.netflam.gemstones.items.RoseQuartzItem

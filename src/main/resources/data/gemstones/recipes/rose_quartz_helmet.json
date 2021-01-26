@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRR",
+    "R R",
+    "   "
+  ],
+  "key": {
+    "R": {
+      "item": "gemstones:rose_quartz"
+    }
+  },
+  "result": {
+    "item": "gemstones:rose_quartz_helmet",
+    "count": 1
+  }
+}

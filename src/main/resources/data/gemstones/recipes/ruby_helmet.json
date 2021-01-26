@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRR",
+    "R R",
+    "   "
+  ],
+  "key": {
+    "R": {
+      "item": "gemstones:ruby"
+    }
+  },
+  "result": {
+    "item": "gemstones:ruby_helmet",
+    "count": 1
+  }
+}

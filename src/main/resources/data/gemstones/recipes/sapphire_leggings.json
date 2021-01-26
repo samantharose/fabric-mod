@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "B B",
+    "B B"
+  ],
+  "key": {
+    "B": {
+      "item": "gemstones:sapphire"
+    }
+  },
+  "result": {
+    "item": "gemstones:sapphire_leggings",
+    "count": 1
+  }
+}

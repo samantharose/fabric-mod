@@ -22,5 +22,17 @@
   "item.gemstones.sapphire_helmet": "Sapphire Helmet",
   "item.gemstones.sapphire_chestplate": "Sapphire Chestplate",
   "item.gemstones.sapphire_leggings": "Sapphire Leggings",
-  "item.gemstones.sapphire_boots": "Sapphire Boots"
+  "item.gemstones.sapphire_boots": "Sapphire Boots",
+  "item.gemstones.rose_quartz_helmet": "Rose Quartz Boots",
+  "item.gemstones.rose_quartz_chestplate": "Rose Quartz Chestplate",
+  "item.gemstones.rose_quartz_leggins": "Rose Quartz Leggins",
+  "item.gemstones.rose_quartz_boots": "Rose Quartz Boots",
+  "item.gemstones.rose_quartz": "Rose Quartz",
+  "item.gemstones.rose_quartz_pickaxe": "Rose Quartz Pickaxe",
+  "item.gemstones.rose_quartz_axe": "Rose Quartz Axe",
+  "item.gemstones.rose_quartz_shovel": "Rose Quartz Shovel",
+  "item.gemstones.rose_quartz_hoe": "Rose Quartz Hoe",
+  "item.gemstones.rose_quartz_sword": "Rose Quartz Sword",
+  "block.gemstones.rose_quartz_ore": "Rose Quartz Ore",
+  "block.gemstones.rose_quartz_block": "Rose Quartz Block"
 }

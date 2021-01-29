@@ -34,5 +34,17 @@
   "item.gemstones.rose_quartz_hoe": "Rosenquartzhacke",
   "item.gemstones.rose_quartz_sword": "Rosenquartz Schwert",
   "block.gemstones.rose_quartz_ore": "Rosenquartz Erz",
-  "block.gemstones.rose_quartz_block": "Rosenquartz Block"
+  "block.gemstones.rose_quartz_block": "Rosenquartz Block",
+  "item.gemstones.amethyst_helmet": "Amethyst Helm",
+  "item.gemstones.amethyst_chestplate": "Amethyst Brustplatte",
+  "item.gemstones.amethyst_leggings": "Amethyst Beinschutz",
+  "item.gemstones.amethyst_boots": "Amethyst Schuhe",
+  "item.gemstones.amethyst": "Amethyst",
+  "item.gemstones.amethyst_pickaxe": "Amethyst Spitzhacke",
+  "item.gemstones.amethyst_axe": "Amethyst Axt",
+  "item.gemstones.amethyst_shovel": "Amethyst Schaufel",
+  "item.gemstones.amethyst_hoe": "Amethysthacke",
+  "item.gemstones.amethyst_sword": "Amethyst Schwert",
+  "block.gemstones.amethyst_ore": "Amethyst Erz",
+  "block.gemstones.amethyst_block": "Amethyst Block"
 }

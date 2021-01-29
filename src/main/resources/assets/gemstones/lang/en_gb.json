@@ -34,5 +34,17 @@
   "item.gemstones.rose_quartz_hoe": "Rose Quartz Hoe",
   "item.gemstones.rose_quartz_sword": "Rose Quartz Sword",
   "block.gemstones.rose_quartz_ore": "Rose Quartz Ore",
-  "block.gemstones.rose_quartz_block": "Rose Quartz Block"
+  "block.gemstones.rose_quartz_block": "Rose Quartz Block",
+  "item.gemstones.amethyst_helmet": "Amethyst Helmet",
+  "item.gemstones.amethyst_chestplate": "Amethyst Chestplate",
+  "item.gemstones.amethyst_leggings": "Amethyst Leggins",
+  "item.gemstones.amethyst_boots": "Amethyst Boots",
+  "item.gemstones.amethyst": "Amethyst",
+  "item.gemstones.amethyst_pickaxe": "Amethyst Pickaxe",
+  "item.gemstones.amethyst_axe": "Amethyst Axe",
+  "item.gemstones.amethyst_shovel": "Amethyst Shovel",
+  "item.gemstones.amethyst_hoe": "Amethyst Hoe",
+  "item.gemstones.amethyst_sword": "Amethyst Sword",
+  "block.gemstones.amethyst_ore": "Amethyst Ore",
+  "block.gemstones.amethyst_block": "Amethyst Block"
 }

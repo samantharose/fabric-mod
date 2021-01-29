@@ -2,8 +2,12 @@ de/netflam/gemstones/tools/templates/CustomAxeItem.java
  de.netflam.gemstones.tools.templates.CustomAxeItem
 de/netflam/gemstones/tools/templates/CustomHoeItem.java
  de.netflam.gemstones.tools.templates.CustomHoeItem
+de/netflam/gemstones/items/AmethystItem.java
+ de.netflam.gemstones.items.AmethystItem
 de/netflam/gemstones/items/SapphireItem.java
  de.netflam.gemstones.items.SapphireItem
+de/netflam/gemstones/tools/AmethystWeapon.java
+ de.netflam.gemstones.tools.AmethystWeapon
 de/netflam/gemstones/tools/RubyWeapon.java
  de.netflam.gemstones.tools.RubyWeapon
 de/netflam/gemstones/GemstonesMod.java
@@ -12,6 +16,8 @@ de/netflam/gemstones/tools/SapphireWeapon.java
  de.netflam.gemstones.tools.SapphireWeapon
 de/netflam/gemstones/RubyArmourMaterial.java
  de.netflam.gemstones.RubyArmourMaterial
+de/netflam/gemstones/AmethystArmourMaterial.java
+ de.netflam.gemstones.AmethystArmourMaterial
 de/netflam/gemstones/items/RegisterItems.java
  de.netflam.gemstones.items.RegisterItems
 de/netflam/gemstones/items/RubyItem.java

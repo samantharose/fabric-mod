@@ -1,6 +1,7 @@
 package de.netflam.gemstones;
 
 import de.netflam.gemstones.items.RegisterItems;
+import de.netflam.gemstones.tools.AmethystWeapon;
 import de.netflam.gemstones.tools.RubyWeapon;
 import de.netflam.gemstones.tools.SapphireWeapon;
 import de.netflam.gemstones.tools.RoseQuartzWeapon;
@@ -66,21 +67,15 @@ public class GemstonesMod implements ModInitializer {
 	public static final ToolItem ROSE_QUARTZ_HOE = new CustomHoeItem(RoseQuartzWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
 
 
-	// TODO: implement amethyst ore
-	// TODO: implement amethyst block
-	// TODO: implement amethyst sword
-	// TODO: implement amethyst pickaxe
-	// TODO: implement amethyst shovel
-	// TODO: implement amethyst axe
-	// TODO: implement amethyst hoe
+	// Amethyst blocks, items and tools
 	public static final Item AMETHYST = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
-	//public static final Block AMETHYST_ORE = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
-	//public static final Block AMETHYST_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
-	//public static final ToolItem AMETHYST_SWORD = new SwordItem(AmethystWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
-	//public static final ToolItem AMETHYST_PICKAXE = new CustomPickaxeItem(AmethystWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));
-	//public static final ToolItem AMETHYST_SHOVEL = new ShovelItem(AmethystWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
-	//public static final ToolItem AMETHYST_AXE = new CustomAxeItem(AmethystWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
-	//public static final ToolItem AMETHYST_HOE = new CustomHoeItem(AmethystWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final Block AMETHYST_ORE = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
+	public static final Block AMETHYST_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
+	public static final ToolItem AMETHYST_SWORD = new SwordItem(AmethystWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
+	public static final ToolItem AMETHYST_PICKAXE = new CustomPickaxeItem(AmethystWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final ToolItem AMETHYST_SHOVEL = new ShovelItem(AmethystWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final ToolItem AMETHYST_AXE = new CustomAxeItem(AmethystWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final ToolItem AMETHYST_HOE = new CustomHoeItem(AmethystWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
 
 
 	// Ruby ore generation
@@ -122,7 +117,18 @@ public class GemstonesMod implements ModInitializer {
 			.spreadHorizontally()
 			.repeat(5);
 
-	// TODO: implement amethyst ore generation
+	// Amethyst ore generation
+	private static ConfiguredFeature<?, ?> AMETHYST_ORE_OVERWORLD = Feature.ORE
+			.configure(new OreFeatureConfig(
+					OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+					AMETHYST_ORE.getDefaultState(),
+					6))
+			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
+					0,
+					0,
+					64)))
+			.spreadHorizontally()
+			.repeat(5);
 
 
 	// ItemGroup
@@ -188,19 +194,19 @@ public class GemstonesMod implements ModInitializer {
 
 		// Register amethyst blocks/items in registry system and generate ore
 		Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst"), AMETHYST);
-		//Registry.register(Registry.BLOCK, new Identifier("gemstones", "amethyst_ore"), AMETHYST_ORE);
-		//Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_ore"), new BlockItem(AMETHYST_ORE, new Item.Settings().group(ItemGroup.MISC)));
-		//Registry.register(Registry.BLOCK, new Identifier("gemstones", "amethyst_block"), AMETHYST_BLOCK);
-		//Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_block"), new BlockItem(AMETHYST_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
-		//Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_sword"), AMETHYST_SWORD);
-		//Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_pickaxe"), AMETHYST_PICKAXE);
-		//Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_shovel"), AMETHYST_SHOVEL);
-		//Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_axe"), AMETHYST_AXE);
-		//Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_hoe"), AMETHYST_HOE);
-		//RegistryKey<ConfiguredFeature<?, ?>> amethystOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-		//		new Identifier("gemstones", "amethyst_ore_overworld"));
-		//Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, amethystOreOverworld.getValue(), AMETHYST_ORE_OVERWORLD);
-		//BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, amethystOreOverworld);
+		Registry.register(Registry.BLOCK, new Identifier("gemstones", "amethyst_ore"), AMETHYST_ORE);
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_ore"), new BlockItem(AMETHYST_ORE, new Item.Settings().group(ItemGroup.MISC)));
+		Registry.register(Registry.BLOCK, new Identifier("gemstones", "amethyst_block"), AMETHYST_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_block"), new BlockItem(AMETHYST_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_sword"), AMETHYST_SWORD);
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_pickaxe"), AMETHYST_PICKAXE);
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_shovel"), AMETHYST_SHOVEL);
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_axe"), AMETHYST_AXE);
+		Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_hoe"), AMETHYST_HOE);
+		RegistryKey<ConfiguredFeature<?, ?>> amethystOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+				new Identifier("gemstones", "amethyst_ore_overworld"));
+		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, amethystOreOverworld.getValue(), AMETHYST_ORE_OVERWORLD);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, amethystOreOverworld);
 
 
 		// Register armour equip sound

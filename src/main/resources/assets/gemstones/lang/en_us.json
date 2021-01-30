@@ -46,5 +46,6 @@
   "item.gemstones.amethyst_hoe": "Amethyst Hoe",
   "item.gemstones.amethyst_sword": "Amethyst Sword",
   "block.gemstones.amethyst_ore": "Amethyst Ore",
-  "block.gemstones.amethyst_block": "Amethyst Block"
+  "block.gemstones.amethyst_block": "Amethyst Block",
+  "itemGroup.gemstones.items": "Gemstone Items"
 }

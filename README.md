@@ -1,5 +1,5 @@
 # Gemstones
-### A Fabric mod that adds gemstone items to Minecraft
+### A Fabric mod that adds various gemstones and items made of them to Minecraft
 
 ## Requirements
 + Minecraft 1.16.5

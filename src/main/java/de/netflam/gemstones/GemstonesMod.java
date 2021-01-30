@@ -24,11 +24,7 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 public class GemstonesMod implements ModInitializer {
 
@@ -37,7 +33,7 @@ public class GemstonesMod implements ModInitializer {
     public static SoundEvent ARMOUR_EQUIP_EVENT = new SoundEvent(ARMOUR_EQUIP);
 
     // Ruby blocks, items and tools
-    public static final Block RUBY_ORE = new RubyOre();
+    public static final Block RUBY_ORE = RubyOre.getOre();
     public static final Item RUBY = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
     public static final Block RUBY_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(10.0F));
     public static final ToolItem RUBY_SWORD = new SwordItem(RubyWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
@@ -48,7 +44,7 @@ public class GemstonesMod implements ModInitializer {
 
 
     // Sapphire blocks, items and tools
-    public static final Block SAPPHIRE_ORE = new SapphireOre();
+    public static final Block SAPPHIRE_ORE = SapphireOre.getOre();
     public static final Item SAPPHIRE = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
     public static final Block SAPPHIRE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(10.0F));
     public static final ToolItem SAPPHIRE_SWORD = new SwordItem(SapphireWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
@@ -59,7 +55,7 @@ public class GemstonesMod implements ModInitializer {
 
 
     // Rose quartz blocks, items and tools
-    public static final Block ROSE_QUARTZ_ORE = new RoseQuartzOre();
+    public static final Block ROSE_QUARTZ_ORE = RoseQuartzOre.getOre();
     public static final Item ROSE_QUARTZ = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
     public static final Block ROSE_QUARTZ_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(10.0F));
     public static final ToolItem ROSE_QUARTZ_SWORD = new SwordItem(RoseQuartzWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
@@ -70,7 +66,7 @@ public class GemstonesMod implements ModInitializer {
 
 
     // Amethyst blocks, items and tools
-    public static final Block AMETHYST_ORE = new AmethystOre();
+    public static final Block AMETHYST_ORE = AmethystOre.getOre();
     public static final Item AMETHYST = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
     public static final Block AMETHYST_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
     public static final ToolItem AMETHYST_SWORD = new SwordItem(AmethystWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
@@ -84,62 +80,6 @@ public class GemstonesMod implements ModInitializer {
     public static final ItemGroup GemstonesMod = FabricItemGroupBuilder.build(
             new Identifier("gemstones", "items"),
             () -> new ItemStack(RUBY_BLOCK));
-
-
-    // Ruby ore generation
-    private static ConfiguredFeature<?, ?> RUBY_ORE_OVERWORLD = Feature.ORE
-            .configure(new OreFeatureConfig(
-                    OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
-                    RUBY_ORE.getDefaultState(),
-                    6))
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
-                    0,
-                    0,
-                    64)))
-            .spreadHorizontally()
-            .repeat(5);
-
-
-    // Sapphire ore generation
-    private static ConfiguredFeature<?, ?> SAPPHIRE_ORE_OVERWORLD = Feature.ORE
-            .configure(new OreFeatureConfig(
-                    OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
-                    SAPPHIRE_ORE.getDefaultState(),
-                    6))
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
-                    0,
-                    0,
-                    64)))
-            .spreadHorizontally()
-            .repeat(5);
-
-
-    // Rose quartz ore generation
-    private static ConfiguredFeature<?, ?> ROSE_QUARTZ_ORE_OVERWORLD = Feature.ORE
-            .configure(new OreFeatureConfig(
-                    OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
-                    ROSE_QUARTZ_ORE.getDefaultState(),
-                    6))
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
-                    0,
-                    0,
-                    64)))
-            .spreadHorizontally()
-            .repeat(5);
-
-
-    // Amethyst ore generation
-    private static ConfiguredFeature<?, ?> AMETHYST_ORE_OVERWORLD = Feature.ORE
-            .configure(new OreFeatureConfig(
-                    OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
-                    AMETHYST_ORE.getDefaultState(),
-                    6))
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
-                    0,
-                    0,
-                    64)))
-            .spreadHorizontally()
-            .repeat(5);
 
 
     @Override
@@ -159,7 +99,7 @@ public class GemstonesMod implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("gemstones", "ruby_hoe"), RUBY_HOE);
         RegistryKey<ConfiguredFeature<?, ?>> rubyOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
                 new Identifier("gemstones", "ruby_ore_overworld"));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, rubyOreOverworld.getValue(), RUBY_ORE_OVERWORLD);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, rubyOreOverworld.getValue(), RubyOre.getConfiguredOreFeature());
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, rubyOreOverworld);
 
 
@@ -176,7 +116,7 @@ public class GemstonesMod implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("gemstones", "sapphire_hoe"), SAPPHIRE_HOE);
         RegistryKey<ConfiguredFeature<?, ?>> sapphireOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
                 new Identifier("gemstones", "sapphire_ore_overworld"));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, sapphireOreOverworld.getValue(), SAPPHIRE_ORE_OVERWORLD);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, sapphireOreOverworld.getValue(), SapphireOre.getConfiguredOreFeature());
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, sapphireOreOverworld);
 
 
@@ -193,7 +133,7 @@ public class GemstonesMod implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("gemstones", "rose_quartz_hoe"), ROSE_QUARTZ_HOE);
         RegistryKey<ConfiguredFeature<?, ?>> roseQuartzOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
                 new Identifier("gemstones", "rose_quartz_ore_overworld"));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, roseQuartzOreOverworld.getValue(), ROSE_QUARTZ_ORE_OVERWORLD);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, roseQuartzOreOverworld.getValue(), RoseQuartzOre.getConfiguredOreFeature());
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, roseQuartzOreOverworld);
 
 
@@ -210,7 +150,7 @@ public class GemstonesMod implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("gemstones", "amethyst_hoe"), AMETHYST_HOE);
         RegistryKey<ConfiguredFeature<?, ?>> amethystOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
                 new Identifier("gemstones", "amethyst_ore_overworld"));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, amethystOreOverworld.getValue(), AMETHYST_ORE_OVERWORLD);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, amethystOreOverworld.getValue(), AmethystOre.getConfiguredOreFeature());
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, amethystOreOverworld);
 
 

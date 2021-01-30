@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "gemstones:rose_quartz_ore"
+          "name": "gemstones:rose_quartz"
         }
       ],
       "conditions": [

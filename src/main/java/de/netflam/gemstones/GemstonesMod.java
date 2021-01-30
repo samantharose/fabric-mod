@@ -3,6 +3,7 @@ package de.netflam.gemstones;
 import de.netflam.gemstones.items.RegisterItems;
 import de.netflam.gemstones.ores.AmethystOre;
 import de.netflam.gemstones.ores.RubyOre;
+import de.netflam.gemstones.ores.SapphireOre;
 import de.netflam.gemstones.tools.AmethystWeapon;
 import de.netflam.gemstones.tools.RoseQuartzWeapon;
 import de.netflam.gemstones.tools.RubyWeapon;
@@ -49,8 +50,8 @@ public class GemstonesMod implements ModInitializer {
 
 
     // Sapphire blocks, items and tools
+    public static final Block SAPPHIRE_ORE = new SapphireOre();
     public static final Item SAPPHIRE = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
-    public static final Block SAPPHIRE_ORE = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
     public static final Block SAPPHIRE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(10.0F));
     public static final ToolItem SAPPHIRE_SWORD = new SwordItem(SapphireWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
     public static final ToolItem SAPPHIRE_PICKAXE = new CustomPickaxeItem(SapphireWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));

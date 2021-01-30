@@ -1,9 +1,7 @@
 package de.netflam.gemstones;
 
 import de.netflam.gemstones.items.RegisterItems;
-import de.netflam.gemstones.ores.AmethystOre;
-import de.netflam.gemstones.ores.RubyOre;
-import de.netflam.gemstones.ores.SapphireOre;
+import de.netflam.gemstones.ores.*;
 import de.netflam.gemstones.tools.AmethystWeapon;
 import de.netflam.gemstones.tools.RoseQuartzWeapon;
 import de.netflam.gemstones.tools.RubyWeapon;
@@ -61,8 +59,8 @@ public class GemstonesMod implements ModInitializer {
 
 
     // Rose quartz blocks, items and tools
+    public static final Block ROSE_QUARTZ_ORE = new RoseQuartzOre();
     public static final Item ROSE_QUARTZ = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
-    public static final Block ROSE_QUARTZ_ORE = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
     public static final Block ROSE_QUARTZ_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(10.0F));
     public static final ToolItem ROSE_QUARTZ_SWORD = new SwordItem(RoseQuartzWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
     public static final ToolItem ROSE_QUARTZ_PICKAXE = new CustomPickaxeItem(RoseQuartzWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));

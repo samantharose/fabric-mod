@@ -30,7 +30,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.GenerationStep;
 
 public class GemstonesMod implements ModInitializer {
-	// oh god no
+	// oh god no // Oh God YES
 	public static final Identifier ARMOUR_EQUIP = new Identifier("gemstones:armour_equip_sound");
 	public static SoundEvent ARMOUR_EQUIP_EVENT = new SoundEvent(ARMOUR_EQUIP);
 

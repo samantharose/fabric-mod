@@ -26,7 +26,7 @@ public class AmethystArmourMaterial implements ArmorMaterial {
     public Ingredient getRepairIngredient() { return Ingredient.ofItems(GemstonesMod.AMETHYST); }
 
     @Override
-    public String getName() { return "rose_quartz"; }
+    public String getName() { return "amethyst"; }
 
     @Override
     public float getToughness() { return 10.0F; }

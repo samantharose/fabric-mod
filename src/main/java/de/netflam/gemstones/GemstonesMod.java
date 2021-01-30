@@ -2,6 +2,7 @@ package de.netflam.gemstones;
 
 import de.netflam.gemstones.items.RegisterItems;
 import de.netflam.gemstones.ores.AmethystOre;
+import de.netflam.gemstones.ores.RubyOre;
 import de.netflam.gemstones.tools.AmethystWeapon;
 import de.netflam.gemstones.tools.RoseQuartzWeapon;
 import de.netflam.gemstones.tools.RubyWeapon;
@@ -31,17 +32,22 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 public class GemstonesMod implements ModInitializer {
+
     // oh god no // Oh God YES
     public static final Identifier ARMOUR_EQUIP = new Identifier("gemstones:armour_equip_sound");
+    public static SoundEvent ARMOUR_EQUIP_EVENT = new SoundEvent(ARMOUR_EQUIP);
+
     // Ruby blocks, items and tools
+    public static final Block RUBY_ORE = new RubyOre();
     public static final Item RUBY = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
-    public static final Block RUBY_ORE = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
     public static final Block RUBY_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(10.0F));
     public static final ToolItem RUBY_SWORD = new SwordItem(RubyWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.COMBAT));
     public static final ToolItem RUBY_PICKAXE = new CustomPickaxeItem(RubyWeapon.INSTANCE, 2, 2.5F, new Item.Settings().group(ItemGroup.TOOLS));
     public static final ToolItem RUBY_SHOVEL = new ShovelItem(RubyWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
     public static final ToolItem RUBY_AXE = new CustomAxeItem(RubyWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
     public static final ToolItem RUBY_HOE = new CustomHoeItem(RubyWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
+
+
     // Sapphire blocks, items and tools
     public static final Item SAPPHIRE = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
     public static final Block SAPPHIRE_ORE = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
@@ -51,6 +57,8 @@ public class GemstonesMod implements ModInitializer {
     public static final ToolItem SAPPHIRE_SHOVEL = new ShovelItem(SapphireWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
     public static final ToolItem SAPPHIRE_AXE = new CustomAxeItem(SapphireWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
     public static final ToolItem SAPPHIRE_HOE = new CustomHoeItem(SapphireWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
+
+
     // Rose quartz blocks, items and tools
     public static final Item ROSE_QUARTZ = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
     public static final Block ROSE_QUARTZ_ORE = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0F));
@@ -60,6 +68,8 @@ public class GemstonesMod implements ModInitializer {
     public static final ToolItem ROSE_QUARTZ_SHOVEL = new ShovelItem(RoseQuartzWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
     public static final ToolItem ROSE_QUARTZ_AXE = new CustomAxeItem(RoseQuartzWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
     public static final ToolItem ROSE_QUARTZ_HOE = new CustomHoeItem(RoseQuartzWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
+
+
     // Amethyst blocks, items and tools
     public static final Block AMETHYST_ORE = new AmethystOre();
     public static final Item AMETHYST = new Item(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
@@ -69,11 +79,14 @@ public class GemstonesMod implements ModInitializer {
     public static final ToolItem AMETHYST_SHOVEL = new ShovelItem(AmethystWeapon.INSTANCE, 2, 3, new Item.Settings().group(ItemGroup.TOOLS));
     public static final ToolItem AMETHYST_AXE = new CustomAxeItem(AmethystWeapon.INSTANCE, 3, 4.5F, new Item.Settings().group(ItemGroup.TOOLS));
     public static final ToolItem AMETHYST_HOE = new CustomHoeItem(AmethystWeapon.INSTANCE, 1, 2, new Item.Settings().group(ItemGroup.TOOLS));
+
+
     // ItemGroup
     public static final ItemGroup GemstonesMod = FabricItemGroupBuilder.build(
             new Identifier("gemstones", "items"),
             () -> new ItemStack(RUBY_BLOCK));
-    public static SoundEvent ARMOUR_EQUIP_EVENT = new SoundEvent(ARMOUR_EQUIP);
+
+
     // Ruby ore generation
     private static ConfiguredFeature<?, ?> RUBY_ORE_OVERWORLD = Feature.ORE
             .configure(new OreFeatureConfig(
@@ -86,6 +99,8 @@ public class GemstonesMod implements ModInitializer {
                     64)))
             .spreadHorizontally()
             .repeat(5);
+
+
     // Sapphire ore generation
     private static ConfiguredFeature<?, ?> SAPPHIRE_ORE_OVERWORLD = Feature.ORE
             .configure(new OreFeatureConfig(
@@ -98,6 +113,8 @@ public class GemstonesMod implements ModInitializer {
                     64)))
             .spreadHorizontally()
             .repeat(5);
+
+
     // Rose quartz ore generation
     private static ConfiguredFeature<?, ?> ROSE_QUARTZ_ORE_OVERWORLD = Feature.ORE
             .configure(new OreFeatureConfig(
@@ -110,6 +127,8 @@ public class GemstonesMod implements ModInitializer {
                     64)))
             .spreadHorizontally()
             .repeat(5);
+
+
     // Amethyst ore generation
     private static ConfiguredFeature<?, ?> AMETHYST_ORE_OVERWORLD = Feature.ORE
             .configure(new OreFeatureConfig(
@@ -122,6 +141,7 @@ public class GemstonesMod implements ModInitializer {
                     64)))
             .spreadHorizontally()
             .repeat(5);
+
 
     @Override
     public void onInitialize() {

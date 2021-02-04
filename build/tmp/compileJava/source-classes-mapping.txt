@@ -2,35 +2,35 @@ de/netflam/gemstones/tools/templates/CustomAxeItem.java
  de.netflam.gemstones.tools.templates.CustomAxeItem
 de/netflam/gemstones/tools/templates/CustomHoeItem.java
  de.netflam.gemstones.tools.templates.CustomHoeItem
-de/netflam/gemstones/items/AmethystItem.java
- de.netflam.gemstones.items.AmethystItem
-de/netflam/gemstones/items/SapphireItem.java
- de.netflam.gemstones.items.SapphireItem
+de/netflam/gemstones/ores/RoseQuartzOre.java
+ de.netflam.gemstones.ores.RoseQuartzOre
 de/netflam/gemstones/tools/AmethystWeapon.java
  de.netflam.gemstones.tools.AmethystWeapon
+de/netflam/gemstones/ores/SapphireOre.java
+ de.netflam.gemstones.ores.SapphireOre
 de/netflam/gemstones/tools/RubyWeapon.java
  de.netflam.gemstones.tools.RubyWeapon
 de/netflam/gemstones/GemstonesMod.java
  de.netflam.gemstones.GemstonesMod
+de/netflam/gemstones/items/RubyArmourMaterial.java
+ de.netflam.gemstones.items.RubyArmourMaterial
 de/netflam/gemstones/tools/SapphireWeapon.java
  de.netflam.gemstones.tools.SapphireWeapon
-de/netflam/gemstones/RubyArmourMaterial.java
- de.netflam.gemstones.RubyArmourMaterial
-de/netflam/gemstones/AmethystArmourMaterial.java
- de.netflam.gemstones.AmethystArmourMaterial
+de/netflam/gemstones/items/AmethystArmourMaterial.java
+ de.netflam.gemstones.items.AmethystArmourMaterial
 de/netflam/gemstones/items/RegisterItems.java
  de.netflam.gemstones.items.RegisterItems
-de/netflam/gemstones/items/RubyItem.java
- de.netflam.gemstones.items.RubyItem
 de/netflam/gemstones/mixin/ExampleMixin.java
  de.netflam.gemstones.mixin.ExampleMixin
-de/netflam/gemstones/SapphireArmourMaterial.java
- de.netflam.gemstones.SapphireArmourMaterial
+de/netflam/gemstones/ores/AmethystOre.java
+ de.netflam.gemstones.ores.AmethystOre
+de/netflam/gemstones/ores/RubyOre.java
+ de.netflam.gemstones.ores.RubyOre
 de/netflam/gemstones/tools/RoseQuartzWeapon.java
  de.netflam.gemstones.tools.RoseQuartzWeapon
 de/netflam/gemstones/tools/templates/CustomPickaxeItem.java
  de.netflam.gemstones.tools.templates.CustomPickaxeItem
-de/netflam/gemstones/RoseQuartzArmourMaterial.java
- de.netflam.gemstones.RoseQuartzArmourMaterial
-de/netflam/gemstones/items/RoseQuartzItem.java
- de.netflam.gemstones.items.RoseQuartzItem
+de/netflam/gemstones/items/SapphireArmourMaterial.java
+ de.netflam.gemstones.items.SapphireArmourMaterial
+de/netflam/gemstones/items/RoseQuartzArmourMaterial.java
+ de.netflam.gemstones.items.RoseQuartzArmourMaterial

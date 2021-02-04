@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "gemstones:ruby"
+          "name": "gemstones:ruby_ore"
         }
       ],
       "conditions": [
